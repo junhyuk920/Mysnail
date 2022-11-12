@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/mysnail.css}">
+</head>
+
+<body>
+    <div th:insert="common/header.html" id="header"></div>
+    <a th:href="@{/mysnail/picturewrite}">글쓰기</a>
+    <c:forEach var="mysnail" items="${picturewrite.content}">
+    <div th:insert="common/footer.html" id="footer"></div>
+</body>

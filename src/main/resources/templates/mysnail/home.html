@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/css/mysnail.css}">
+</head>
+
+<body>
+    <div th:insert="common/header.html" id="header"></div>
+    <section class="container" style="height: auto !important;">
+        <article id="content" style="height: auto !important;">
+            <div class="inner" style="height: auto !important;">
+                <div class="hgroup">
+                    <div class="category">홈</div>
+                    <h1>우리집 달팽이 소개</h1>
+                </div>
+                <div class="post" style="height: auto !important;">
+                    <img class="mysnailimg"
+                        src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F6Uu5y%2FbtqPRAZxFAp%2FHNuKuXldqhwHzKfa3P8Ji0%2Fimg.jpg">
+                    <br>
+                    <br>
+                    <br>
+                    <h1>우리집 달팽이의 이름은 "활발이"</h1>
+                    <br>
+                    <p>우리집 달팽이의 종은 "아프리카 왕달팽이" 입니다. 패각과 배발색에 따라 금와, 백와, 흑와, 흑백와, 흑금와, 연흑금와라고 부릅니다.</p>
+                    <br>
+                    <p>우리집 달팽이는 왕달팽이 중에서 백와입니다. 백와 달팽이는 여러 모로 키우기 무난해서 처음 키워보는 사람들은 물론이고, 많이 키워본 사람들도 제법 선호하는 종입니다.
+                        물론 생명체이니만큼 개체에 따른 차이는 있겠으나, 대부분의 경우 먹성도 좋은 편이고, 활발한 움직임을 보여주며 크기도 적당합니다. 물론, 달팽이를 처음 보는
+                        사람에게는 좀 크게 느껴질 수도 있습니다. 배발도 깨끗한 하얀색, 또는 아이보리색이라 색상에 의한 거부감도 상대적으로 덜한 편입니다.</p>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+            </div>
+        </article>
+    </section>
+    <div th:insert="common/footer.html" id="footer"></div>
+</body>
