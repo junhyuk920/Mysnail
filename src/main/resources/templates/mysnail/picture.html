@@ -11,6 +11,6 @@
 <body>
     <div th:insert="common/header.html" id="header"></div>
     <a th:href="@{/mysnail/picturewrite}">글쓰기</a>
-    <c:forEach var="mysnail" items="${picturewrite.content}">
+    <div th:insert="mysnail/mysnailList.html"></div>
     <div th:insert="common/footer.html" id="footer"></div>
 </body>

@@ -15,9 +15,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 @Table(name = "mysnail")
-public class MysnailEntity {
+public class MysnailEntity extends TimeEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     private String title;
     private String content;
@@ -27,5 +27,11 @@ public class MysnailEntity {
         this.id = id;
         this.title = title;
         this.content = content;
+    }
+
+    public MysnailEntity update(String title) {
+        this.title = title;
+
+        return this;
     }
 }

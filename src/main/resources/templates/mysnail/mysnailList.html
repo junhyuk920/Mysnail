@@ -5,8 +5,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" th:href="@{/css/mysnail.css}">
+    <script src="/js/mysnail.js"></script>
 </head>
 
 <body>
-    
+    <c:forEach var="list" items="${list.content }">
+        <div class="card m-2">
+            <div class="card-body">
+                <h4 class="card-title">${list.title }</h4>
+                <a href="/mysnail/${list.id }" class="btn btn-primary">상세보기</a>
+            </div>
+        </div>
 </body>
