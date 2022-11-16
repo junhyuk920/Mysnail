@@ -8,7 +8,8 @@ body {
 	line-height: 1.25;
 }
 
-html, body {
+html,
+body {
 	width: 100%;
 	height: 100%;
 	margin: 0;
@@ -16,8 +17,13 @@ html, body {
 	font-size: 100%;
 }
 
-header, footer, section, article, nav, hgroup{
-    display: block;
+header,
+footer,
+section,
+article,
+nav,
+hgroup {
+	display: block;
 }
 
 hr {
@@ -29,17 +35,19 @@ ul li {
 }
 
 #wrap {
-    position: relative;
+	position: relative;
 }
 
 #header {
 	position: relative;
 	border-bottom: 1px solid #e6e6e6;
 }
+
 #header .inner {
 	max-width: 1200px;
 	margin: 0 auto;
 }
+
 #header .inner:after {
 	content: "";
 	clear: both;
@@ -47,17 +55,19 @@ ul li {
 	height: 0;
 	visibility: hidden;
 }
+
 #header h1 {
 	float: left;
 	max-width: 500px;
 	overflow: hidden;
 	padding: 26px 0;
-	font-size:1.25em;
+	font-size: 1.25em;
 	line-height: 28px;
 	letter-spacing: 0.5px;
-	text-overflow:ellipsis;
-	white-space:nowrap;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
+
 #header h1 a {
 	display: inline-block;
 	vertical-align: top;
@@ -65,27 +75,31 @@ ul li {
 	color: #7a583a;
 }
 
-#gnb  {
+#gnb {
 	position: relative;
 	float: right;
-    font-size: large;
+	font-size: large;
 }
+
 #gnb ul li {
 	float: left;
-	padding:26px 16px;
+	padding: 26px 16px;
 	font-size: 0.875em;
 }
+
 #gnb ul li a {
 	display: block;
 	position: relative;
-	padding:0 4px;
+	padding: 0 4px;
 	text-decoration: none;
 	line-height: 28px;
 	color: #000;
 }
+
 #gnb ul li a:hover {
 	color: #7a583a;
 }
+
 #gnb ul li a:hover:after {
 	content: "";
 	display: block;
@@ -99,47 +113,65 @@ ul li {
 }
 
 #content .inner {
-    overflow: hidden;
-    max-width: 860px;
-    margin: auto;
+	overflow: hidden;
+	max-width: 860px;
+	margin: auto;
 }
 
 .hgroup {
-    max-width: 1200px;
-    margin: 0 auto 60px;
-    padding: 78px 0 40px;
-    border-bottom: 1px solid #7a583a;
+	max-width: 1200px;
+	margin: 0 auto 60px;
+	padding: 78px 0 40px;
+	border-bottom: 1px solid #7a583a;
 }
 
 .hgroup .category {
-    margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 0.875em;
-    color: #000;
+	margin-bottom: 8px;
+	font-weight: 700;
+	font-size: 0.875em;
+	color: #000;
 }
 
 .hgroup h1 {
-    font-size: 1.5em;
-    font-weight: 400;
-    line-height: 1.0666;
-    color: #7a583a;
+	font-size: 1.5em;
+	font-weight: 400;
+	line-height: 1.0666;
+	color: #7a583a;
 }
-.mysnailimg{
+
+.mysnailimg {
 	width: 500px;
 }
 
-.post p{
+.post p {
 	font-size: 17px;
-    line-height: 1.8;
-    margin: 0 auto 0px;
-    font-family: 'NanumBarunGothic', 'Spoqa Han Sans', 'Malgun Gothic','Raleway',sans-serif;
+	line-height: 1.8;
+	margin: 0 auto 0px;
+	font-family: 'NanumBarunGothic', 'Spoqa Han Sans', 'Malgun Gothic', 'Raleway', sans-serif;
 }
 
+.container {
+	height: auto;
+	min-height: 100%;
+	padding-bottom: 50px;
+}
+#footer{
+	position: relative;
+	transform: translateY(-100%);
+}
 .area_foot {
-    height: 50px;
-    font-size: 12px;
-    line-height: 50px;
-    text-align: center;
-    background-color: #f0f0f0;
-    color: #aaa;
+	height: 50px;
+	font-size: 12px;
+	line-height: 50px;
+	text-align: center;
+	background-color: #f0f0f0;
+	color: #aaa;
+}
+
+.container{
+		margin: 80px auto 40px;
+		display: block;
+		width: min-content;
+		width: fit-content;
+		max-width: 95%;
 }

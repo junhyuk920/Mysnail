@@ -18,32 +18,3 @@ $(document).ready(function () {
 		});
 	});
 });
-$(document).ready(function () {
-	axios.get('/mysnail/all', {
-	})
-		.then(function (response) {
-			let tb = $("<tbody/>");
-			console.log(response)
-			for (var i in response.data) {
-				console.log(response.data)
-
-				let $id = response.data[i].id
-				let $title = response.data[i].title
-				let $createdDate = response.data[i].createdDate
-
-				var row = $("<tr/>").append(
-					'<td><a href=' + $id + '>' + $id + '</a></td>' +
-					'<td>' + $title + '</td>' +
-					'<td>' + $createdDate + '</td>'
-				)
-				tb.append(row);
-			}
-			$(".thead").after(tb);
-		})
-		.catch(function (error) {
-			console.log(error);
-		})
-		.finally(function () {
-			// always executed
-		});
-})

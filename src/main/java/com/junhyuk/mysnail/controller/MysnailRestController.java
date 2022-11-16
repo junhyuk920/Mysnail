@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,6 +25,7 @@ public class MysnailRestController {
         return mysnailService.getPostList();
     }
 
+
     @PostMapping("/mysnail/new")
     public MysnailDto insert(@RequestBody MysnailDto mysnailDto) {
         return mysnailService.savePost(mysnailDto);
@@ -34,6 +36,12 @@ public class MysnailRestController {
     @GetMapping("/mysnail/{id}")
     public MysnailDto getPost(@PathVariable Long id) {
         return mysnailService.getPost(id);
+    }
+
+    @PutMapping("/mysnail/{id}")
+    public MysnailDto updateMysnail(@PathVariable Long id, @RequestBody MysnailDto mysnailDto){
+
+        return mysnailService.updatePost(id, mysnailDto);
     }
 
     // 회원 삭제

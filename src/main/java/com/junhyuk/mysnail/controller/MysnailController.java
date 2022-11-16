@@ -52,9 +52,10 @@ public class MysnailController {
     }
 
     //
-    @GetMapping("/mysnail/mysnailList")
-    public String mysnailList() {
-        return "/mysnail/mysnailList";
+
+    @GetMapping("/mysnail/{id}/mysnailupdate")
+    public String update() {
+        return "/mysnail/mysnailupdate";
     }
 
     // 회원 상세보기

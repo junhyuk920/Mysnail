@@ -41,18 +41,23 @@ public class MysnailService {
         Optional<MysnailEntity> mysnailEntityWrapper = mysnailRepository.findById(id);
         MysnailEntity mysnailEntity = mysnailEntityWrapper.get();
 
-        MysnailDto MysnailDTO = MysnailDto.builder()
+        return MysnailDto.builder()
                 .id(mysnailEntity.getId())
                 .title(mysnailEntity.getTitle())
                 .content(mysnailEntity.getContent())
                 .createdDate(mysnailEntity.getCreatedDate())
                 .build();
-
-        return MysnailDTO;
     }
+
 
     @Transactional
     public MysnailDto savePost(MysnailDto mysnailDto) {
+        mysnailRepository.save(mysnailDto.toEntity());
+        return mysnailDto;
+    }
+
+    @Transactional
+    public MysnailDto updatePost(MysnailDto mysnailDto) {
         mysnailRepository.save(mysnailDto.toEntity());
         return mysnailDto;
     }

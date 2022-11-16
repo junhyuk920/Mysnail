@@ -4,16 +4,97 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" th:href="@{/css/mysnail.css}">
     <script src="/js/mysnail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.serializeObject/2.0.3/jquery.serializeObject.min.js"></script>
+    <link rel="stylesheet" th:href="@{/css/mysnail.css}">
 </head>
 
 <body>
-    <c:forEach var="list" items="${list.content }">
-        <div class="card m-2">
-            <div class="card-body">
-                <h4 class="card-title">${list.title }</h4>
-                <a href="/mysnail/${list.id }" class="btn btn-primary">상세보기</a>
-            </div>
+
+    <body>
+        <!-- <div class="container">
+        <h2>회원 목록</h2>
+        <table class="board_list">
+            <colgroup>
+                <col width="20%"/>
+                <col width="20%"/>
+                <col width="20%"/>
+            </colgroup>
+            <thead class="thead">
+            <tr>
+                <th scope="col">회원번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">생성일</th>
+            </tr>
+            </thead>
+        </table>
+    </div> -->
+        <div class="container">
+            <h2>게시물 목록</h2>
+            <table class="mysnail_list">
+                <colgroup>
+                    <col width="15%" />
+                    <col width="15%" />
+                    <col width="15%" />
+                <thead class="thead">
+                    <tr>
+                        <th scope="col">번호 </th>
+                        <th scope="col">제목</th>
+                        <th scope="col">생성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="mysnail : ${mysnailDtoList}">
+                        <td>
+                            <span th:text="${id}"></span>
+                        </td>
+                        <td>
+                            <a th:href="@{'/' + ${id}}">
+                                <span th:text="${title}"></span>
+                            </a>
+                        </td>
+                        <td>
+                            <span th:text="${#temporals.format(mysnail.createdDate, 'yyyy-MM-dd')}"></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-</body>
+        <script>
+            $(function () {
+                axios.get('/mysnail/all', {
+                })
+                    .then(function (response) {
+                        let tb = $("<tbody/>");
+                        console.log(response)
+                        for (var i in response.data) {
+                            console.log(response.data)
+
+                            let $id = response.data[i].id
+                            let $title = response.data[i].title
+                            let $createdDate = response.data[i].createdDate
+
+                            var row = $("<tr/>").append(
+                                '<td><a href=' + $id + '>' + $id + '</a></td>' +
+                                '<td>' + $title + '</td>' +
+                                '<td>' + $createdDate + '</td>'
+                            )
+                            tb.append(row);
+                        }
+                        $(".thead").after(tb);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+                    .finally(function () {
+                        // always executed
+                    });
+            })
+        </script>
+    </body>
+
+</html>
