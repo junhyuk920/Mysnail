@@ -61,7 +61,6 @@ public class MysnailController {
     // 회원 상세보기
     @GetMapping("{id}")
     public String getPost(@PathVariable Long id) {
-
         return "mysnail/mysnaildetail";
     }
 

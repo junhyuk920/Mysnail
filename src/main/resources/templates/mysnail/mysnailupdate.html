@@ -31,7 +31,7 @@
             </div>
             <h1>Content:</h1>
             <div class="form-group">
-                <textarea class="form-control summernote" rows="5" name="content" id="content" th:text="${content}"></textarea>
+                <textarea class="form-control summernote" rows="5" name="content" id="content"></textarea>
             </div>
             <button type="button" class="btn btn-primary Mysnailsubmit" onclick="submit_click()">수정</button>
         </div>
@@ -72,17 +72,18 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
         function submit_click() {
-            let id = $(location).attr('href').split('/')[5]
+            let id = $(location).attr('href').split('/')[4]
             let data = {
                 title: $("#title").val(),
                 content: $("#content").val()
             };
+            console.dir(data)
             $.ajax({
                 type: 'PUT',   //post 방식으로 전송
                 url: '/mysnail/' + id,   //데이터를 주고받을 파일 주소
                 data: JSON.stringify(data),   //위의 변수에 담긴 데이터를 전송해준다.
                 contentType: "application/json; charset=utf-8",
-                dataType: "json",
+                dataType: "text",
                 success: function (data) {   //파일 주고받기가 성공했을 경우. data 변수 안에 값을 담아온다.
                     alert("수정이 완료되었습니다.");
                     //console.log(resp);

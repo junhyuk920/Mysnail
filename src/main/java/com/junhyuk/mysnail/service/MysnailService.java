@@ -1,5 +1,6 @@
 package com.junhyuk.mysnail.service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,29 +38,47 @@ public class MysnailService {
     }
 
     @Transactional
-    public MysnailDto getPost(Long id) {
+    public MysnailEntity getPost(Long id) {
         Optional<MysnailEntity> mysnailEntityWrapper = mysnailRepository.findById(id);
         MysnailEntity mysnailEntity = mysnailEntityWrapper.get();
 
-        return MysnailDto.builder()
-                .id(mysnailEntity.getId())
-                .title(mysnailEntity.getTitle())
-                .content(mysnailEntity.getContent())
-                .createdDate(mysnailEntity.getCreatedDate())
-                .build();
+        return mysnailEntity;
     }
 
 
     @Transactional
-    public MysnailDto savePost(MysnailDto mysnailDto) {
-        mysnailRepository.save(mysnailDto.toEntity());
-        return mysnailDto;
+    public MysnailEntity savePost(MysnailDto mysnailDto) {
+        MysnailEntity response = mysnailRepository.save(mysnailDto.toEntity());
+        return response;
     }
 
+    // @Transactional
+    // public MysnailEntity updatePost(Long id, MysnailDto mysnailDto) {
+    //     Optional<MysnailEntity> mydata = mysnailRepository.findById(id);
+    //     MysnailEntity dto = mydata.get();
+    //     dto.builder()
+    //         .title(mysnailDto.getTitle())
+    //         .content(mysnailDto.getContent())
+    //         .modifiedDate(LocalDateTime.now())
+    //         .build();
+        
+    //     return mysnailRepository.save(dto);
+    // }
+
     @Transactional
-    public MysnailDto updatePost(MysnailDto mysnailDto) {
-        mysnailRepository.save(mysnailDto.toEntity());
-        return mysnailDto;
+    public MysnailEntity updatePost(Long id, MysnailDto mysnailDto){
+        Optional<MysnailEntity> mydata = mysnailRepository.findById(id);
+
+        return mydata.map(data -> {
+            data.setTitle(mysnailDto.getTitle());
+            data.setContent(mysnailDto.getContent());
+            data.setModifiedDate(LocalDateTime.now());
+
+            return data;
+        })
+        .map(data -> mysnailRepository.save(data))
+        .map(data -> data)
+        .orElseGet(() -> null);
     }
 
     @Transactional

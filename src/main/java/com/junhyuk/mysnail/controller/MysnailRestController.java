@@ -11,10 +11,16 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.junhyuk.mysnail.domain.entity.MysnailEntity;
 import com.junhyuk.mysnail.dto.MysnailDto;
 import com.junhyuk.mysnail.service.MysnailService;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 @RestController
+@AllArgsConstructor
+@NoArgsConstructor
 public class MysnailRestController {
     @Autowired
     MysnailService mysnailService;
@@ -27,20 +33,19 @@ public class MysnailRestController {
 
 
     @PostMapping("/mysnail/new")
-    public MysnailDto insert(@RequestBody MysnailDto mysnailDto) {
+    public MysnailEntity insert(@RequestBody MysnailDto mysnailDto) {
         return mysnailService.savePost(mysnailDto);
     }
 
 
     // 회원 상세
     @GetMapping("/mysnail/{id}")
-    public MysnailDto getPost(@PathVariable Long id) {
+    public MysnailEntity getPost(@PathVariable Long id) {
         return mysnailService.getPost(id);
     }
 
     @PutMapping("/mysnail/{id}")
-    public MysnailDto updateMysnail(@PathVariable Long id, @RequestBody MysnailDto mysnailDto){
-
+    public MysnailEntity updateMysnail(@PathVariable(name = "id") Long id, @RequestBody MysnailDto mysnailDto){
         return mysnailService.updatePost(id, mysnailDto);
     }
 

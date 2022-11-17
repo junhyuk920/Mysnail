@@ -6,10 +6,11 @@ import java.time.LocalDateTime;
 
 import com.junhyuk.mysnail.domain.entity.MysnailEntity;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 @ToString
 @NoArgsConstructor
+@Builder
 public class MysnailDto {
     private Long id;
     private String title;
@@ -25,12 +26,4 @@ public class MysnailDto {
                 .build();
     }
 
-    @Builder
-    public MysnailDto(Long id, String title, String content, LocalDateTime createdDate, LocalDateTime modifiedDate) {
-        this.id = id;
-        this.title = title;
-        this.content = content;
-        this.createdDate = createdDate;
-        this.modifiedDate = modifiedDate;
-    }
 }

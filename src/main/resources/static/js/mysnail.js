@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 	$('#btn-save').click(function () {
 		let data = {
 			title: $("#title").val(),
