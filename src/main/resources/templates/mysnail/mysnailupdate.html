@@ -31,7 +31,7 @@
             </div>
             <h1>Content:</h1>
             <div class="form-group">
-                <textarea class="form-control summernote" rows="5" name="content" id="content"></textarea>
+                <textarea class="form-control summernote" rows="10" name="content" id="content"></textarea>
             </div>
             <button type="button" class="btn btn-primary Mysnailsubmit" onclick="submit_click()">수정</button>
         </div>
@@ -62,8 +62,8 @@
                     // 봐바 $id 부분에서 에러 나잖아 네 ㅇㅋ?ㅇㅋㅇㅋㅇ
                     // html 을 쓰면 그 태그 안에 내용을 다 지우고 데이터로 대체 시키는거고, text는 그 태그 안에 내용을 유지 시키고 데이터를 내용 뒤에 추가시키는 거야 ㅇㅋ?ㅇㅋㅇㅋ
                     $('input[name=title]').attr('value', data.title);
-                    $("/*[[${content}]]*/").val(data.content);
-
+                    var markupStr = data.content;
+                    $('#content').summernote('code', markupStr);
                 }
             });
         })

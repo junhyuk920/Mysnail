@@ -45,7 +45,7 @@ public class MysnailRestController {
     }
 
     @PutMapping("/mysnail/{id}")
-    public MysnailEntity updateMysnail(@PathVariable(name = "id") Long id, @RequestBody MysnailDto mysnailDto){
+    public MysnailEntity updateMysnail(@PathVariable Long id, @RequestBody MysnailDto mysnailDto){
         return mysnailService.updatePost(id, mysnailDto);
     }
 
